@@ -7,9 +7,14 @@
 
 <p>Trainer's Pokemons:</p>
 <% @trainer.pokemons.each do |p| %>
-    <%= image_tag("pokemon/#{p.ndex}.png", alt: "pokemon") %>
-    <p>Name: <%=p.name%></p>
-    <p>Level: <%=p.level%></p>
-    <p>Health: <%=p.health%></p>
-    <%= button_to "Damage!", damage_path(id: @trainer,pokemon: p), :class => "button medium", :method => :patch %>
+	<% if p.health > 0 %>
+        <%= image_tag("pokemon/#{p.ndex}.png", alt: "pokemon") %>
+        <p>Name: <%=p.name%></p>
+        <p>Level: <%=p.level%></p>
+        <p>Health: <%=p.health%></p>
+        <%= button_to "Damage!", damage_path(id: @trainer,pokemon: p), :class => "button medium", :method => :patch %>
+        <% if current_trainer.email == @trainer.email %>
+            <%= button_to "Heal<3", heal_path(id: @trainer,pokemon: p), :class => "button medium", :method => :patch %>
+        <% end %>
+    <% end %>
 <% end %>
