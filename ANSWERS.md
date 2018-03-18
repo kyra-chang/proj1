@@ -17,8 +17,7 @@ the path need the trainer ID, so in the views I have to pass that data as param[
 # Question 5: Explain how putting this line "flash[:error] = @pokemon.errors.full_messages.to_sentence" shows error messages on your form.
 the place which shows the error (flash[:error]) will get the error message(if has) in the @pokemon variable after the model validates it.
 
-https://github.com/kyra-chang/sp18-proj1
-
 # Give us feedback on the project and decal below!
 
 # Extra credit: Link your Heroku deployed app
+https://github.com/kyra-chang/sp18-proj1
